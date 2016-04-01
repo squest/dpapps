@@ -2,7 +2,8 @@
   (:require
     [clj-time.core :as t]
     [clj-time.coerce :as c]
-    [clj-time.local :as l]))
+    [clj-time.local :as l]
+    [clojure.pprint :as pp]))
 
 (defn trim [n d]
   (let [ed (Math/pow 10 d)]
@@ -12,7 +13,9 @@
   (read-string (slurp "resources/data.edn")))
 
 (defn cspit [data]
-  (spit "resources/data.edn" data))
+  (->> (pp/pprint data)
+       with-out-str
+       (spit "resources/data.edn")))
 
 (defn now []
   (l/local-now))

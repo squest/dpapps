@@ -9,13 +9,15 @@
   (let [ed (Math/pow 10 d)]
     (/ (int (* ed n)) ed 1.0)))
 
-(defn cslurp []
-  (read-string (slurp "resources/data.edn")))
-
 (defn cspit [data]
-  (->> (pp/pprint data)
-       with-out-str
-       (spit "resources/data.edn")))
+  (spit "data.edn" data))
+
+(defn cslurp []
+  (if-let [data (try (slurp "data.edn") (catch Exception e))]
+    (do (println "ga nemu data")
+        (read-string data))
+    (do (cspit {:level 0 :records [[true 10]]})
+        (cslurp))))
 
 (defn now []
   (l/local-now))

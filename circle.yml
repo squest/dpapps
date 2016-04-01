@@ -1,9 +1,2 @@
-## Customize the test machine
-machine:
-  java:
-    version: oraclejdk8
-
-## Customize test commands
-test:
-  override:
-    - lein sub -s "arit" test
+general:
+  build_dir: arit

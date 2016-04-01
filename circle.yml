@@ -3,12 +3,6 @@ machine:
   java:
     version: oraclejdk8
 
-## Customize dependencies
-dependencies:
-  override:
-    - lein deps
-    - lein sub -s "arit" deps
-
 ## Customize test commands
 test:
   override:

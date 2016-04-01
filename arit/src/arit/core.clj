@@ -5,13 +5,15 @@
     [clj-time.coerce :as c]))
 
 (defn -main
-  [& opts]
-  (print "Pick your ema?")
-  (let [which-one (read-line)]
-    (condp = which-one
-      "watson" (println "Cool!")
-      "stone" (println "You're stone")
-      "roberts" (println "Cute one"))))
+  [& args]
+  (print "Choose your Ema .. ")
+  (let [with-ema (read-line)]
+    (condp = with-ema
+      "watson" (println "door")
+      "roberts" (println "yes")
+      "stone" (println "stoned"))))
+
+
 
 
 

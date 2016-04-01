@@ -7,4 +7,5 @@
                  [clj-time "0.11.0"]]
   :resource-paths ["resources"]
   :source-paths ["src"]
+  :aot [arit.core]
   :main ^:skip-aot arit.core)

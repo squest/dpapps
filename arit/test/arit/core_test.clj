@@ -17,10 +17,11 @@
     (let [f (fn [{:keys [a b op bulet]}]
               (and (number? a)
                    (number? b)
-                   (fn? op)))]
-      (is (= true
-             (every? map? (:funs pro/game))))
-      (is (= true
-             (every? f (:funs pro/game)))))))
+                   (fn? op)))
+          maxi (inc (:max pro/game))]
+      (is (= (zipmap (range maxi) (repeat true))
+             (zipmap (range maxi) (map map? (:funs pro/game)))))
+      (is (= (zipmap (range maxi) (repeat true))
+             (zipmap (range maxi) (map f (:funs pro/game))))))))
 
 

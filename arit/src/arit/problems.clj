@@ -41,12 +41,26 @@
                   {:a (read-string (str a1 a2)) :b 2 :op * :bulet true}))
               (fn []
                 (let [a (rand-nth (range 20 100))
-                      b (rand-nth (1 10))
+                      b (rand-nth (range 1 10))
                       op (rand-nth [+ -])]
                   {:a a :b b :op op :bulet true}))
               (fn []
                 (let [a (rand-nth (range 2 80 2))]
-                  {:a a :b 25 :op * :bulet true}))]]
+                  {:a a :b 25 :op * :bulet true}))
+              (fn []
+                (let [a (rand-nth (range 10 100))
+                      b (rand-nth (range 2 5))]
+                  {:a a :b b :op * :bulet true}))
+              (fn []
+                (let [a (rand-nth (range 9 100 10))
+                      b (rand-nth (range 1 10))]
+                  {:a a :b b :op * :bulet true}))
+              (fn []
+                (let [a (rand-nth (range 2 300 2))]
+                  {:a a :b 0.5 :op * :bulet true}))
+              (fn []
+                (let [a (rand-nth (range 2 300))]
+                  {:a a :b 0.5 :op * :bulet false :d 1}))]]
     {:max (dec (count funs))
     :funs funs}))
 

@@ -31,7 +31,8 @@
             (println "Thanks for flying with us!"))
         (do (condp = choice
               "1" (play state records)
-              "2" (println (tracker/reporting (:records @records))))
+              "2" (println "Level :" (:level @records)
+                           (tracker/reporting (:records @records))))
             (recur))))))
 
 (defn- init []
@@ -57,7 +58,7 @@
         (println "がんばて!!")
         (if bulet
           (if (== (read-string answer) (op a b))
-            (if (== 9 corrects)
+            (if (== 4 corrects)
               (do (reset! state {:level    (if (== level (inc maxi))
                                              level
                                              (inc level))
@@ -76,7 +77,7 @@
                                    :records (conj drecords [true timing])})
                   (println "BENER!!")
                   (recur)))
-            (if (== 2 wrongs)
+            (if (== 1 wrongs)
               (do (reset! state {:level    (dec level)
                                  :wrongs   0
                                  :corrects 0})

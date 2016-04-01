@@ -2,14 +2,15 @@
   (:gen-class)
   (:require
     [arit.utils :refer :all]
-    [arit.tracker :as tracker]))
+    [arit.tracker :as tracker :refer [records]]))
 
 (declare menu play report init)
 
-(def records (atom nil))
-
 (defn -main [& args]
   (println (with-time)))
+
+(defn save-progress []
+  (cspit @records))
 
 (defn menu []
   (loop []
@@ -19,10 +20,11 @@
     \n 0. exit")
     (let [choice (read-line)]
       (if (= "0" choice)
-        (println "Thanks for flying with us!")
+        (do (save-progress)
+            (println "Thanks for flying with us!"))
         (do (condp = choice
-              "1" (play)
-              "2" (report))
+              "1" (play records)
+              "2" (tracker/reporting (:records @records)))
             (recur))))))
 
 (defn- init []

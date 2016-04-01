@@ -21,4 +21,4 @@
   (let [t1 (c/to-long (now))
         ans (read-line)]
     {:answer ans
-     :timing (- (c/to-long (now)) t1)}))
+     :timing (quot (- (c/to-long (now)) t1) 1000)}))

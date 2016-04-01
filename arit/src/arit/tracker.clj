@@ -12,6 +12,6 @@
   (let [raw (map second data)]
     raw))
 
-(defn report [data]
+(defn reporting [data]
   {:score (score data)
    :time  (timing data)})

@@ -1,7 +1,12 @@
 (ns arit.core-test
-  (:require [clojure.test :refer :all]
-            [arit.core :refer :all]))
+  (:require
+    [clojure.test :refer :all]
+    [arit.core :refer :all]
+    [arit.utils :refer :all]
+    [arit.tracker :refer :all]))
 
-(deftest a-test
-  (testing "FIXME, I fail."
-    (is (== 0 0))))
+(deftest utils
+  (testing "Utilities"
+    (is (= (cslurp)
+           (do (cspit (cslurp))
+               (cslurp))))))

@@ -1,35 +1,34 @@
 (ns arit.core
   (:gen-class)
   (:require
-    [clj-time.core :as t]
-    [clj-time.coerce :as c]))
+    [arit.utils :refer :all]
+    [arit.tracker :as tracker]))
 
-(declare menu submenu)
+(declare menu play report init)
 
-(defn -main
-  [& args]
-  (menu))
+(def records (atom nil))
 
-(defn menu
-  []
+(defn -main [& args]
+  (println (with-time)))
+
+(defn menu []
   (loop []
-    (println "Pick a service : \n 1. Masuk \n 2. Keluar \n 3. Nggak tau \n 0. exit")
+    (println "Pick a service :
+    \n 1. Play
+    \n 2. Report
+    \n 0. exit")
     (let [choice (read-line)]
       (if (= "0" choice)
         (println "Thanks for flying with us!")
-        (do (submenu choice)
+        (do (condp = choice
+              "1" (play)
+              "2" (report))
             (recur))))))
 
-(defn submenu
-  [ch]
-  (println (str "You're choosing menu number : " ch))
-  (loop []
-    (println "Pick a service : \n 1. Masuk \n 2. Keluar \n 3. Nggak tau \n 0. exit")
-    (let [choice (read-line)]
-      (if (= "0" choice)
-        (println "Thanks for flying with us!")
-        (do (println (str "You're choice is " choice))
-            (recur))))))
+(defn- init []
+  (reset! records (cslurp)))
+
+
 
 
 

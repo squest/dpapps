@@ -17,8 +17,7 @@
     (let [f (fn [{:keys [a b op bulet]}]
               (and (number? a)
                    (number? b)
-                   (fn? op)
-                   ({true true false true} bulet)))]
+                   (fn? op)))]
       (is (= true
              (every? map? (:funs pro/game))))
       (is (= true

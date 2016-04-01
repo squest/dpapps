@@ -18,7 +18,7 @@
               (and (number? a)
                    (number? b)
                    (fn? op)
-                   (#{true false} bulet)))]
+                   ({true true false true} bulet)))]
       (is (= true
              (every? map? (:funs pro/game))))
       (is (= true

@@ -4,7 +4,7 @@
     [arit.core :refer :all]
     [arit.utils :refer :all]
     [arit.tracker :refer :all]
-    [arit.problems :refer :all]))
+    [arit.problems :as pro]))
 
 (deftest utils
   (testing "Utilities"
@@ -20,8 +20,8 @@
                    (fn? op)
                    (#{true false} bulet)))]
       (is (= true
-             (every? map? (:funs game))))
+             (every? map? (:funs pro/game))))
       (is (= true
-             (every? f (:funs game)))))))
+             (every? f (:funs pro/game)))))))
 
 

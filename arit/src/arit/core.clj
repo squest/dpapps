@@ -4,7 +4,7 @@
     [arit.utils :refer :all]
     [arit.tracker :as tracker :refer [records]]))
 
-(declare menu play report init)
+(declare menu play init)
 
 (defn -main [& args]
   (println (with-time)))

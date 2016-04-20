@@ -3,3 +3,4 @@ arit/.gitignore
 arit/arit.iml
 arit/data.edn
 kanaji/.idea/*
+kanaji/kanaji.iml

@@ -1,7 +1,8 @@
 (defproject kanaji "0.1.0-SNAPSHOT"
-  :dependencies [[org.clojure/clojure "1.7.0"]
+  :dependencies [[org.clojure/clojure "1.8.0"]
                  [org.clojure/clojurescript "1.7.170"]
-                 [reagent "0.5.1"]
+                 [reagent "0.6.0-alpha" :exclusions [cljsjs/react]]
+                 [cljsjs/react-with-addons "0.13.3-0"]
                  [re-frame "0.7.0"]
                  [re-com "0.8.0"]
                  [secretary "1.2.3"]

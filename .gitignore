@@ -1,3 +1,4 @@
 arit/.idea/*
 arit/.gitignore
 arit/arit.iml
+arit/data.edn

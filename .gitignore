@@ -4,3 +4,5 @@ arit/arit.iml
 arit/data.edn
 kanaji/.idea/*
 kanaji/kanaji.iml
+kana/.idea*
+kana/kana.iml

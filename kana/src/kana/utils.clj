@@ -9,19 +9,19 @@
   (let [ed (Math/pow 10 d)]
     (/ (int (* ed n)) ed 1.0)))
 
-(def dir "resources/")
+(def diro "resources/")
 
 (defn cspit [fname data]
-  (spit (str dir fname ".edn") data))
+  (spit (str diro fname ".edn") data))
 
 (defn cslurp [fname]
   (if (= fname "data")
-    (if-let [data (try (slurp (str dir "data.edn")) (catch Exception e))]
+    (if-let [data (try (slurp (str diro "data.edn")) (catch Exception e))]
       (do (println "nemu data")
           (read-string data))
       (do (cspit "data" {:correct 0 :wrong 0 :times []})
           (cslurp fname)))
-    (-> (str dir fname ".edn") read-string)))
+    (-> (str diro fname ".edn") slurp read-string)))
 
 (defn now []
   (l/local-now))
